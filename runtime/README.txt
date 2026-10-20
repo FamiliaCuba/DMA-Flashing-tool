@@ -1,34 +1,36 @@
-RUNTIME - herramientas externas
-================================
+External tools
+==============
 
-Familia Cuba invoca estas herramientas por debajo. No se incluyen en el
-repositorio (cada una tiene su propia licencia). Coloca los archivos con
-ESTA estructura, junto al FamiliaCuba.exe:
+FM Flashing Tool calls these programs and libraries. They are not part of
+this repository. Each one has its own license. Place the files next to
+FamiliaCuba.exe using this layout:
 
 runtime\
-  leechcore.dll / FTD3XX.dll      <- YA INCLUIDOS (info + speed test)
+  leechcore.dll
+  FTD3XX.dll
   openFPGALoader\
-    openFPGALoader.exe            <- YA INCLUIDO (flasheo, backup, verify, detect)
-    (libusb-1.0.dll, libftdi1.dll, libusbK.dll ...)   <- dlls que trae su release
-    data\
-      spiOverJtag_xc7a35t.bit.gz
-      spiOverJtag_xc7a75t.bit.gz
-      spiOverJtag_xc7a100t.bit.gz
-  leechcore.dll                   <- info del dispositivo + speed test
-  FTD3XX.dll                      <- driver D3XX del FT601 (USB3)
+    openFPGALoader.exe
+    libusb-1.0.dll, libftdi1.dll, and the other DLLs from its release
+    spiOverJtag_xc7a35t.bit.gz
+    spiOverJtag_xc7a75t.bit.gz
+    spiOverJtag_xc7a100t.bit.gz
   drivers\
-    wch\    (CH347/CH341: *.inf, *.cat, *.sys, SETUP.EXE)
-    ftdi\   (ftdibus: *.inf, *.cat, *.sys, Setup.exe)
-    rs232\  zadig-2.9.exe   <- YA INCLUIDO (WinUSB para CH347/FTDI JTAG)
+    wch\     CH347 package (inf, cat, sys, setup)
+    ftdi\    ftdibus package (inf, cat, sys)
+    rs232\   zadig-2.9.exe
 
-De donde descargarlas:
-  - openFPGALoader:  https://github.com/trabucayre/openFPGALoader/releases
-  - LeechCore:       https://github.com/ufrisk/LeechCore/releases  (leechcore.dll)
-  - FTD3XX.dll:      driver D3XX de FTDI  (https://ftdichip.com/drivers/d3xx-drivers/)
-  - Zadig:           https://zadig.akeo.ie/
-  - Drivers WCH:     https://www.wch-ic.com/  (CH347)
+Download
+--------
+  openFPGALoader   https://github.com/trabucayre/openFPGALoader/releases
+  LeechCore        https://github.com/ufrisk/LeechCore/releases
+  FTD3XX.dll       https://ftdichip.com/drivers/d3xx-drivers/
+  Zadig            https://zadig.akeo.ie/
+  WCH CH347        https://www.wch-ic.com/
 
-Notas:
-  - El .exe pide permisos de administrador (necesario para flashear/instalar drivers).
-  - Para el speed test, la tarjeta debe estar conectada a un PC objetivo
-    (LeechCore lee la memoria del objetivo por DMA).
+Notes
+-----
+  The executable requests administrator rights. Flashing and driver setup
+  need them.
+  The speed test reads memory from the target PC. The card must be seated
+  in that machine, with the FT601 USB link attached to the machine running
+  this tool.

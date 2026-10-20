@@ -1,26 +1,17 @@
-# Third-Party Notices
+# Third-party notices
 
-El código propio de **Familia Cuba** (carpeta `src/`) está bajo licencia **MIT**
-(ver `LICENSE`). Para funcionar, la herramienta invoca por debajo varias
-herramientas de terceros que **no forman parte de este repositorio** y se
-distribuyen bajo sus propias licencias. Debes descargarlas y colocarlas en
-`runtime/` (ver `runtime/README.txt`).
+The code in `src/` is original and licensed under MIT. See `LICENSE`.
 
-| Componente | Uso | Proyecto / Licencia |
+To flash, identify a board, and measure DMA speed, the application starts external tools and loads external libraries. Those components are not included in this repository. Download them and place them under `runtime/` as described in `runtime/README.txt`. Each one keeps its own license. Nothing in this repository is a copy of their source code.
+
+| Component | Role in this tool | Upstream |
 |---|---|---|
-| **openFPGALoader** | Flasheo del bitstream y detección JTAG (IDCODE) | trabucayre/openFPGALoader — ver su licencia |
-| bitstreams `spiOverJtag_xc7a*.bit` | Proxy SPI-over-JTAG por modelo de FPGA | distribuidos con openFPGALoader |
-| **LeechCore** (`leechcore.dll`) | Info del dispositivo y speed test DMA (FT601) | ufrisk/LeechCore — ver su licencia |
-| **FTD3XX.dll** | Driver D3XX del FT601 (USB3) | FTDI — licencia FTDI |
-| **Zadig** (`zadig-2.9.exe`) | Instalación de drivers WinUSB | pbatard/libwdi — GPLv3 |
-| Drivers **WCH CH347/CH341** | Driver JTAG/UART | WCH — licencia WCH |
-| Driver **FTDI ftdibus** | Driver serie/JTAG FTDI | FTDI — licencia FTDI |
+| openFPGALoader | SPI flash, verify, backup, and JTAG IDCODE | [trabucayre/openFPGALoader](https://github.com/trabucayre/openFPGALoader) |
+| `spiOverJtag_xc7a*.bit` | SPI-over-JTAG proxy for each Artix-7 part | Shipped with openFPGALoader |
+| LeechCore (`leechcore.dll`) | Device info and FT601 DMA read benchmark | [ufrisk/LeechCore](https://github.com/ufrisk/LeechCore) |
+| FTD3XX | USB3 access to the FT601 link | FTDI D3XX driver |
+| Zadig | WinUSB install for the JTAG interface | [pbatard/libwdi](https://github.com/pbatard/libwdi), GPLv3 |
+| WCH CH347 driver | JTAG programmer driver | WCH |
+| FTDI ftdibus driver | FT2232 / RS232 programmer driver | FTDI |
 
-> Nota legal: estas herramientas se usan como ejecutables/DLL externos (no se
-> enlaza ni se copia su código fuente en este proyecto). Cada una conserva su
-> propia licencia. Al redistribuir un paquete que las incluya, respeta los
-> términos de cada componente e incluye sus avisos de licencia.
-
-Este proyecto **no** reutiliza código de `sercanarga/fpga-dma-multi-tool`
-(licencia PolyForm Noncommercial, incompatible con MIT); solo comparte el
-enfoque de apoyarse en las mismas herramientas open-source anteriores.
+If you redistribute a package that contains any of these files, keep that component’s license and copyright notices with it.
