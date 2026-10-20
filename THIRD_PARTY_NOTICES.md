@@ -2,7 +2,11 @@
 
 The code in `src/` is original and licensed under MIT. See `LICENSE`.
 
-To flash, identify a board, and measure DMA speed, the application starts external tools and loads external libraries. Those components are not included in this repository. Download them and place them under `runtime/` as described in `runtime/README.txt`. Each one keeps its own license. Nothing in this repository is a copy of their source code.
+To flash, identify a board, and measure DMA speed, the application starts external tools and loads external libraries. Their source code is not part of this repository. Each project keeps its own license.
+
+The source tree does not vendor those files. Place them under `runtime/` only if you build from source. See `runtime/README.txt`.
+
+The official Windows executable on Releases does include those binaries, so the downloaded program runs without a separate folder. Redistributing that executable still requires keeping each component's license and copyright notices with it.
 
 | Component | Role in this tool | Upstream |
 |---|---|---|

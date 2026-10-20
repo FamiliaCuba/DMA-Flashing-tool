@@ -6,6 +6,14 @@ The interface is original. Firmware and device access go through well-known exte
 
 Community and support: https://discord.gg/WecrFkBGGx
 
+## Download
+
+The Windows build is published on [Releases](https://github.com/FamiliaCuba/DMA-Flashing-tool/releases/tag/v1.0.0).
+
+[FM Flashing Tool 1.0](https://github.com/FamiliaCuba/DMA-Flashing-tool/releases/download/v1.0.0/FM.Flashing.Tool.1.0.exe) is a single executable. Drivers, openFPGALoader, and LeechCore are already inside it. No extra folder is required. Run it as administrator.
+
+Building from source is separate. That path needs the external tools installed locally, as described below.
+
 ## What it covers
 
 - **Flash.** Writes a `.bin` to SPI with openFPGALoader, after an optional backup, and verifies the result. Supports CH347 and FTDI programmers and the 35T, 75T, and 100T parts.
@@ -16,9 +24,15 @@ Community and support: https://discord.gg/WecrFkBGGx
 
 ## Requirements
 
+For the downloaded executable:
+
 - Windows 10 or 11, 64-bit.
 - Administrator rights. Flashing and driver installation need them.
-- The external tools listed in `runtime/README.txt`, placed next to the executable. They are not stored in this repository.
+
+For a build from this repository:
+
+- The same Windows version and administrator rights.
+- The external tools listed in `runtime/README.txt`. They are not stored in this repository. `build.bat` packs whatever is present under `runtime/` into the executable.
 
 ## Build
 
