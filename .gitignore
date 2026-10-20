@@ -1,0 +1,23 @@
+# Compilados y paquetes locales
+FamiliaCuba.exe
+FamiliaCuba_test.exe
+FM Flashing Tool*.exe
+*.rar
+*.pdb
+payload.bin
+lang.txt
+tools/MakeIco.exe
+
+# Capturas temporales
+_*.png
+
+# Binarios de terceros. Se conservan licencias y README.
+runtime/*.dll
+runtime/openFPGALoader/**
+!runtime/openFPGALoader/LICENSE.openFPGALoader
+runtime/drivers/**
+!runtime/drivers/ftdi/
+!runtime/drivers/ftdi/README.txt
+!runtime/drivers/wch/
+!runtime/drivers/wch/README.txt
+!runtime/drivers/rs232/
